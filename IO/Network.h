@@ -103,7 +103,7 @@ namespace IO {
 		std::list<std::string> queue;
 
 	public:
-		~HTTP() { Stop(); }
+		virtual ~HTTP() { Stop(); }
 #endif
 	public:
 		HTTP(const std::vector<std::vector<std::string>>* map, int d) : builder(map, d) {}
@@ -145,7 +145,7 @@ namespace IO {
 		void ResetIfNeeded();
 		
 	public:
-		~UDPStreamer();
+		virtual ~UDPStreamer();
 		UDPStreamer();
 
 		virtual Setting& Set(std::string option, std::string arg);

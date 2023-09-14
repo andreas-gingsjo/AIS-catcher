@@ -66,7 +66,7 @@ namespace Device {
 
 	public:
 		UDP();
-		~UDP();
+		virtual ~UDP();
 
 		// Control
 		void Close();

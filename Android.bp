@@ -1,0 +1,82 @@
+
+
+//CXX_DEFINES = -DHASHACKRF -DHASZLIB
+
+//CXX_INCLUDES = -I/usr/include/libhackrf -I/usr/include/libusb-1.0 -I/home/angi/private/AIS-catcher/. ,"Ships ,"DBMS ,"Library ,"DSP ,"Application ,"IO
+
+//CXX_FLAGS = -Ofast -std=gnu++11 -Wno-psabi
+
+
+//
+// Copyright (C) 2017 The Android Open Source Project
+//
+// Licensed under the Apache License, Version 2.0 (the "License");
+// you may not use this file except in compliance with the License.
+// You may obtain a copy of the License at
+//
+//      http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS,
+// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+// See the License for the specific language governing permissions and
+// limitations under the License.
+//
+
+cc_binary {
+    name: "ais-catcher",
+    
+    vendor: true,
+    
+    cflags: [ "-fexceptions",
+        "-Ofast", "-std=gnu++11", "-Wno-psabi",
+        "-DHASHACKRF","-DHASZLIB",
+        "-Wno-date-time"
+    ],
+    srcs: [
+        "Application/Config.cpp",
+        "Application/Main.cpp",
+        "Application/Receiver.cpp",
+        "DBMS/PostgreSQL.cpp",
+        "DSP/DSP.cpp",
+        "DSP/Demod.cpp",
+        "DSP/Model.cpp",
+        "Device/AIRSPY.cpp",
+        "Device/AIRSPYHF.cpp",
+        "Device/FileRAW.cpp",
+        "Device/FileWAV.cpp",
+        "Device/HACKRF.cpp",
+        "Device/RTLSDR.cpp",
+        "Device/RTLTCP.cpp",
+        "Device/SDRPLAY.cpp",
+        "Device/Serial.cpp",
+        "Device/SoapySDR.cpp",
+        "Device/SpyServer.cpp",
+        "Device/UDP.cpp",
+        "Device/ZMQ.cpp",
+        "IO/HTTPServer.cpp",
+        "IO/IO.cpp",
+        "IO/Network.cpp",
+        "JSON/JSON.cpp",
+        "JSON/Parser.cpp",
+        "JSON/StringBuilder.cpp",
+        "Library/AIS.cpp",
+        "Library/JSONAIS.cpp",
+        "Library/Keys.cpp",
+        "Library/Message.cpp",
+        "Library/NMEA.cpp",
+        "Library/TCP.cpp",
+        "Library/Utilities.cpp",
+        "Ships/DB.cpp"
+    ],
+
+    local_include_dirs: [
+        ".", "Ships" ,"DBMS" ,"Library" ,"DSP" ,"Application" ,"IO"
+    ],
+
+    shared_libs: [
+        "libhackrf",
+        "libz",
+        "libusb"
+    ],
+}

@@ -75,7 +75,7 @@ namespace IO {
 		std::string filename;
 
 	public:
-		~StreamToFile() {
+		virtual ~StreamToFile() {
 			if (file.is_open())
 				file.close();
 		}

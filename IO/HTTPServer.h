@@ -60,7 +60,7 @@ namespace IO {
 			std::cerr << "SSE Connection Constructor : " << connection->sock << "\n";			
 		}
 
-		~SSEConnection() { 
+		virtual ~SSEConnection() { 
 			std::cerr << "SSE Connection Destructor\n"; Close();
 		}
 

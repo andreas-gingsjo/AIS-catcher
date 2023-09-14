@@ -291,7 +291,7 @@ namespace DSP {
 #endif
 	public:
 #ifdef HASSAMPLERATE
-		~SRC() {
+		virtual ~SRC() {
 			if (state) src_delete(state);
 		}
 #endif

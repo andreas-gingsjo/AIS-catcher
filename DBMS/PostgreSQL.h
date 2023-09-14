@@ -73,7 +73,7 @@ namespace IO {
 #endif
 	public:
 		PostgreSQL() : builder(&AIS::KeyMap, JSON_DICT_FULL) {}
-		~PostgreSQL();
+		virtual ~PostgreSQL();
 
 #ifdef HASPSQL
 		void process();

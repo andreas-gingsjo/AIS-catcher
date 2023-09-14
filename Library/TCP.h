@@ -55,7 +55,7 @@ namespace TCP {
 		void CloseUnsafe();
 
 	public:
-		~ServerConnection() { Close(); }
+		virtual ~ServerConnection() { Close(); }
 
 		SOCKET sock = -1;
 
@@ -83,7 +83,7 @@ namespace TCP {
 
 	class Server {
 	public:
-		~Server();
+		virtual ~Server();
 
 		bool start(int port);
 		bool SendAll(const std::string &m) {
@@ -147,7 +147,7 @@ namespace TCP {
 	public:
 		
 		Client() {}
-		~Client() { disconnect(); }
+		virtual ~Client() { disconnect(); }
 
 		void disconnect();
 		bool connect(std::string host, std::string port, bool persist, int timeout);

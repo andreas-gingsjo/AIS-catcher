@@ -112,6 +112,7 @@ struct RAW {
 };
 
 struct Setting {
+	virtual ~Setting() {}
 	virtual Setting& Set(std::string option, std::string arg) { return *this; }
 	virtual std::string Get() { return ""; }
 };

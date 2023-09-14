@@ -27,6 +27,7 @@ class StreamIn {
 	uint64_t groups_in = GROUPS_ALL;
 
 public:
+	virtual ~StreamIn() {}
 	virtual void Receive(const T* data, int len, TAG& tag) {}
 	virtual void Receive(T* data, int len, TAG& tag) {
 		Receive((const T*)data, len, tag);
@@ -74,6 +75,7 @@ public:
 template <typename S>
 class StreamOut {
 public:
+	virtual ~StreamOut() {}
 	Connection<S> out;
 
 	void Send(const S* data, int len, TAG& tag) {

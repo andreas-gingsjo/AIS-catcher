@@ -94,7 +94,7 @@ class Receiver {
 	TAG tag;
 
 public:
-	~Receiver() {
+	virtual ~Receiver() {
 		if (device) device->Close();
 	}
 
@@ -366,7 +366,7 @@ public:
 		hardware.clear(); JSON::StringBuilder::stringify(Util::Helper::getHardware(),hardware);
 	}
 
-	~WebClient() { stopThread(); }
+	virtual ~WebClient() { stopThread(); }
 
 	bool& active() { return run; }
 	void connect(Receiver& r);

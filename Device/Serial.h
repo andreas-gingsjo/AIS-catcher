@@ -55,7 +55,7 @@ namespace Device {
 
     public:
         SerialPort() : Device(Format::TXT, 288000), port(""), baudrate(38400) {};
-        ~SerialPort();
+        virtual ~SerialPort();
 
 		std::string getRateDescription() { return std::to_string(baudrate) + " baud"; }
 

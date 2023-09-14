@@ -68,7 +68,7 @@ namespace Device {
 		void getDeviceList(std::vector<Description>& DeviceList);
 
 		SDRPLAY();
-		~SDRPLAY();
+		virtual ~SDRPLAY();
 
 		// Settings
 		Setting& Set(std::string option, std::string arg);
